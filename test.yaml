@@ -1,0 +1,217 @@
+openapi: 3.0.3
+info:
+  title: Organization and Project Information API
+  version: 1.0.0
+  description: API to retrieve organization and project details based on OrgNr.
+paths:
+  /organisasjon/{OrgNr}:
+    get:
+      summary: Get organization and related project information
+      parameters:
+        - name: OrgNr
+          in: path
+          required: true
+          description: Organization number to retrieve details
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with organization and project information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  OrgNr:
+                    type: string
+                  Navn:
+                    type: string
+                  SMB:
+                    type: string
+                  Storrelse:
+                    type: string
+                  AntallAnsatte:
+                    type: string
+                  Naeringskode:
+                    type: string
+                  Aar:
+                    type: string
+                  FylkesNr:
+                    type: string
+                  EndretDato:
+                    type: string
+                  SFProsjektinformasjon:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ProsjektId:
+                          type: string
+                        Prosjektnummer:
+                          type: number
+                        SakProsjektNr:
+                          type: number
+                        eSakMigrert:
+                          type: string
+                        ProsjekttittelNO:
+                          type: string
+                        ProsjekttittelEN:
+                          type: string
+                        ProsjektKortnavn:
+                          type: string
+                        HovedmaalTittel:
+                          type: string
+                        HovedmaalBeskrivelse:
+                          type: string
+                        ProsjektansvarligOrgId:
+                          type: string
+                        SoktProsjektPeriodeFraDato:
+                          type: string
+                        SoktProsjektPeriodeTilDato:
+                          type: string
+                        SFGodkjentFraOgMedDato:
+                          type: string
+                        SFGodkjentTilOgMedDato:
+                          type: string
+                        PopVitSammendragNO:
+                          type: string
+                        PopVitSammendragEN:
+                          type: string
+                        ProsjektStatus:
+                          type: string
+                        ProsjektStatusTekst:
+                          type: string
+                        ProsjektEndretDato:
+                          type: string
+                        NFRSaksbehandlerNavn:
+                          type: string
+                        NFRSaksbehandlerEpost:
+                          type: string
+                        ErFortsettelseAvAnnetSFProsjekt:
+                          type: string
+                        ErFortsettelseAvSFProsjektNr:
+                          type: string
+                        SFGodkjenteArbeidspakker:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ArbPakkeld:
+                                type: string
+                              ProsjektId:
+                                type: string
+                              ArbPakkeTittel:
+                                type: string
+                              ArbPakkeStatstottekategori:
+                                type: string
+                              ArbPakkeRekkefolge:
+                                type: string
+                              ArbPakkeFOUUtfordringer:
+                                type: string
+                              ArbPakkeFremgangsmate:
+                                type: string
+                              ArbPakkeBudsjettbeskrivelse:
+                                type: string
+                              ArbPakkeStartDato:
+                                type: string
+                              ArbPakkeSluttDato:
+                                type: string
+                              ArbPakkeOpprettetDato:
+                                type: string
+                              ArbPakkeOpprettetAv:
+                                type: string
+                              ArbPakkeEndretDato:
+                                type: string
+                              ArbPakkeEndretAv:
+                                type: string
+                              ArbeidspakkeBudsjett:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    Id:
+                                      type: string
+                                    ArbpkId:
+                                      type: string
+                                    Kostnadskategori:
+                                      type: string
+                                    Beskrivelse:
+                                      type: string
+                                    ArbeidspakkeBudsjettOpprettetDato:
+                                      type: string
+                                    ArbeidspakkeBudsjettOpprettetAv:
+                                      type: string
+                                    ArbeidspakkeBudsjettEndretDato:
+                                      type: string
+                                    ArbeidspakkeBudsjettEndretAv:
+                                      type: string
+                                    ArbeidspakkeBudsjettlinjer:
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          Id:
+                                            type: string
+                                          ArbeidspakkeBudsjettId:
+                                            type: string
+                                          BudsjettAar:
+                                            type: string
+                                          Verdi:
+                                            type: string
+                              ArbeidspakkeAktivitet:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    Id:
+                                      type: string
+                                    Tittel:
+                                      type: string
+                                    Beskrivelse:
+                                      type: string
+                                    AktivitetRekkefolge:
+                                      type: string
+                                    ArbPakkeld:
+                                      type: string
+                                    AktivitetOpprettetDato:
+                                      type: string
+                                    AktivitetOpprettetAv:
+                                      type: string
+                                    AktivitetEndretDato:
+                                      type: string
+                                    AktivitetEndretAv:
+                                      type: string
+                        Vedtaksliste:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              BeslutningsId:
+                                type: number
+                              BeslutningsStatusId:
+                                type: number
+                              BeslutningsStatusTekst:
+                                type: string
+                              BeslutningsType:
+                                type: string
+                              EndeligBeslutningDato:
+                                type: string
+                              BetingelseGodtattAvSoker:
+                                type: string
+                              BetingelseGodtattAvSokerDato:
+                                type: string
+                              TotalBudsjett:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    Aar:
+                                      type: string
+                                    SumKostnadTotalt:
+                                      type: string
+                                    BeregnetSkattefradrag:
+                                      type: string
+        '404':
+          description: Organization not found
+        '500':
+          description: Server error
